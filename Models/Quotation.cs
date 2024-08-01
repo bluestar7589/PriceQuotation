@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PriceQuotation.Models
@@ -21,7 +22,7 @@ namespace PriceQuotation.Models
         /// The discount percent for the quotation
         /// </summary>
         [Required]
-        [Range(0,100)]
+        [Range(1,100)]
         [RegularExpression(@"^\d+(\.\d{1,2})?$", ErrorMessage = "Please enter a valid number.")]
         public double DiscountPercent { get; set; }
 
@@ -30,8 +31,8 @@ namespace PriceQuotation.Models
         /// Discount amount calculate by Subtotal * DiscountPercent 
         /// </summary>
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-
-        public double DiscountAmount { get; set; }
+        [DataType(DataType.Currency)]
+        public double? DiscountAmount { get; set; } = 0.0;
         /*     {
                  get { return Subtotal * DiscountPercent / 100; }
              }*/
@@ -40,8 +41,8 @@ namespace PriceQuotation.Models
         /// This method to get the total amount of the quotation
         /// </summary>
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-
-        public double Total { get; set; }
+        [DataType(DataType.Currency)]
+        public double? Total { get; set; } = 0.0;
         /*        {
                     get { return Subtotal - DiscountAmount; }
                 }*/

@@ -20,6 +20,7 @@ namespace PriceQuotation.Controllers
         [HttpGet]
         public IActionResult PriceQuotation()
         {
+            //Quotation q = new Quotation();
             return View();
         }
 
@@ -29,15 +30,12 @@ namespace PriceQuotation.Controllers
             if (ModelState.IsValid) 
             {
                 // add to database
-                /*                _context.Quotations.Add(q);
-                                await _context.SaveChangesAsync();
-
-                                Quotation quotation = await _context.Quotations.FindAsync(q.QuotationID);
-                                return View("PriceQuotation", quotation);*/
+                //_context.Quotations.Add(q);
+                //_context.SaveChanges();
                 // Perform any necessary calculations or operations here
                 q.DiscountAmount = q.Subtotal * q.DiscountPercent / 100;
                 q.Total = q.Subtotal - q.DiscountAmount;
-                return View(q);
+                return View("PriceQuotation", q);
             }
             return View(q);
         }

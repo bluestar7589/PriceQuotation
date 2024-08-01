@@ -3,7 +3,6 @@
 @{
     ViewData["Title"] = "Price Quotation";
 }
-
 <h1>Price Quotation</h1>
 
 <div class="row">
@@ -44,7 +43,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input asp-for="DiscountAmount" class="form-control" readonly />
+                        <input asp-for="DiscountAmount" class="form-control" value="@(Model != null ? Model.DiscountAmount : 0.0)" readonly />
                     </div>
                 </div>
             </div>
@@ -56,13 +55,13 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input asp-for="Total" class="form-control" readonly />
+                        <input asp-for="Total" class="form-control" value="@(Model != null ? Model.Total : 0.0)" readonly />
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <input type="submit" value="Calculate" class="btn btn-primary" />
-                <a href="#" onclick="document.querySelector('form').reset(); return false;" class="btn btn-secondary">Clear</a>
+                <a href="#" onclick="debugger; document.querySelector('form').reset(); return false;" class="btn btn-secondary">Clear</a>
             </div>
         </form>
     </div>

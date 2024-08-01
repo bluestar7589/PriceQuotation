@@ -35,7 +35,7 @@ namespace PriceQuotation
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=PriceQuotation}/{id?}");
+                pattern: "{controller=Quote}/{action=PriceQuotation}/{id?}");
 
             app.Run();
         }

@@ -4,7 +4,7 @@ using PriceQuotation.Models;
 
 namespace PriceQuotation.Controllers
 {
-    public class HomeController : Controller
+    public class QuoteController : Controller
     {
 
         /// <summary>
@@ -12,7 +12,7 @@ namespace PriceQuotation.Controllers
         /// </summary>
         private readonly QuotationContext _context;
 
-        public HomeController(QuotationContext context)
+        public QuoteController(QuotationContext context)
         {
             _context = context;
         }

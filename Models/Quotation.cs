@@ -32,19 +32,13 @@ namespace PriceQuotation.Models
         /// </summary>
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [DataType(DataType.Currency)]
-        public double? DiscountAmount { get; set; } = 0.0;
-        /*     {
-                 get { return Subtotal * DiscountPercent / 100; }
-             }*/
+        public double? DiscountAmount { get; set; }
 
         /// <summary>
         /// This method to get the total amount of the quotation
         /// </summary>
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [DataType(DataType.Currency)]
-        public double? Total { get; set; } = 0.0;
-        /*        {
-                    get { return Subtotal - DiscountAmount; }
-                }*/
+        public double? Total { get; set; }
     }
 }
